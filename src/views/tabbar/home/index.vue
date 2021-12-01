@@ -1,6 +1,5 @@
 <template>
     <div>
-      {{a}}
       <a-rate v-model:value="value" />
     </div>
 </template>
