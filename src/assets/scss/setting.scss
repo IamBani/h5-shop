@@ -1,0 +1,16 @@
+$headerH:64px;
+
+
+
+@mixin headerHeight($noun:1) {
+    height: $headerH/$noun;
+}
+
+
+@mixin dot($color) {
+  width: 6px;
+  height: 6px;
+  background: $color;
+  border-radius: 50%;
+  display: inline-block;
+}

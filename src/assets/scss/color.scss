@@ -1,0 +1,46 @@
+
+// 变量颜色
+ $primary-color:#1890ff;
+ $success-color:#52c41a;
+ $warning-color:#faad14;
+ $danger-color:#f5222d;
+ $gray-color:#b7bac0;
+.primary {
+  background-color: $primary-color;
+}
+.success {
+  background-color: $success-color;
+}
+.warning {
+  background-color: $warning-color;
+}
+.danger {
+  background-color: $danger-color;
+}
+.grey {
+  background-color: $gray-color;
+}
+
+.fs-text {
+  color: #3f4968;
+}
+.fs-white {
+  color: #fff;
+}
+.fs-grey {
+  color: #b7bac0;
+}
+.fs-important {
+  color: #f5b646;
+}
+
+
+
+// 背景
+.bg-body {
+  background-color: #eeeff2;
+}
+
+.bg-block {
+  background-color: #f6f6f6;
+}

@@ -1,11 +1,32 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/dashboard'
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    redirect: '/dashboard/home',
+    component: () => import('@/views/dashboard/index.vue'),
+    children: [{
+      path: 'home',
+      name: 'home',
+      component: () => import('@/views/tabbar/home/index.vue')
+    }, {
+      path: 'shop',
+      name: 'shop',
+      component: () => import('@/views/tabbar/shop/index.vue')
+    }, {
+      path: 'cart',
+      name: 'cart',
+      component: () => import('@/views/tabbar/cart/index.vue')
+    }, {
+      path: 'mine',
+      name: 'mine',
+      component: () => import('@/views/tabbar/mine/index.vue')
+    }]
   },
   {
     path: '/about',
