@@ -1,7 +1,7 @@
 
 import { App } from 'vue'
 import { Button, Toast, Icon, Tabbar, TabbarItem, Image, Cell, CellGroup, Grid, GridItem, Tag } from 'vant'
-import { Rate } from 'ant-design-vue'
+
 const VueAndtComponents = {
   install (Vue: App):void {
     Vue.component(Button.name, Button)
@@ -14,7 +14,6 @@ const VueAndtComponents = {
     Vue.component(GridItem.name, GridItem)
     Vue.component(Grid.name, Grid)
     Vue.component(Tag.name, Tag)
-    Vue.component(Rate.name, Rate)
     Vue.config.globalProperties.$toast = Toast
   }
 }

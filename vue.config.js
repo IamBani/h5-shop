@@ -1,6 +1,10 @@
+const path = require('path')
 const { merge } = require('webpack-merge')
 const tsImportPluginFactory = require('ts-import-plugin')
 
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 module.exports = {
   chainWebpack: config => {
     config.module
@@ -12,7 +16,7 @@ module.exports = {
           getCustomTransformers: () => ({
             before: [
               tsImportPluginFactory({
-                libraryName: 'ant-design-vue',
+                libraryName: 'vant',
                 libraryDirectory: 'es',
                 style: true
               })
@@ -23,6 +27,17 @@ module.exports = {
           }
         })
         return option
+      })
+    config.module.rules.delete('svg') // 重点:删除默认配置中处理svg,
+    config.module
+      .rule('svg-sprite-loader')
+      .test(/\.svg$/)
+      .include.add(resolve('src/assets/svg')) // 处理svg目录
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
       })
   },
   css: {
@@ -46,13 +61,10 @@ module.exports = {
             minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
             mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
             replace: true, // 是否转换后直接更换属性值
-            exclude: [/node_modules/], // 设置忽略文件，用正则做目录名匹配
+            exclude: [], // 设置忽略文件，用正则做目录名匹配
             landscape: false // 是否处理横屏情况
           })
         ]
-      },
-      less: {
-        javascriptEnabled: true
       }
     }
   },

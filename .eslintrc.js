@@ -16,5 +16,8 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-var-requires": "off"
-  }
+  },
+  "globals":{  //与上方的rules是同级的
+    "__WebpackModuleApi": true
+  },
 };
